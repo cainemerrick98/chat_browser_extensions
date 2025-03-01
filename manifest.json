@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "CeloDocs GPT",
+  "version": "1.0",
+  "description": "Search CeloDocs with GPT",
+  "action": {
+    "default_popup": "chat_window.html",
+    "default_icon": {
+      "16": "icons/logo16.png"
+    }
+  },
+  "icons": {
+    "16": "icons/logo16.png"
+  },
+  "side_panel": {
+    "default_path": "chat_window.html"
+  },
+  "permissions": ["sidePanel"],
+  "host_permissions": ["http://localhost:*"],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval' http://localhost:* http://127.0.0.1:* 'self'"
+  }
+} 
