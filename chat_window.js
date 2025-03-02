@@ -43,15 +43,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const sendButton = document.getElementById('send_button');
     if (sendButton) {
         sendButton.addEventListener('click', sendMessage);
-    }
+
+    }   
 });
+
   
 var chat_history = [];
 
 function sendMessage() {
     console.log("Sending message");
     let message = getMessage();
-    if (message == null){
+    if (message === null){
         return;
     }
     chat_history.push({role: "user", content: message, sources: []});
@@ -82,7 +84,7 @@ function buildChatMessage(data, role) {
     chat_message.classList.add(role === 'user' ? 'user-message' : 'agent-message');
     chat_message.innerHTML = `
         <div class="chat-message-content">
-            <span class="chat-message-text">${data.answer}</span>
+            <span class="chat-message-text">${marked.parse(data.answer)}</span>
             <div class="sources">
                 ${data.sources.map(source => `<div class="source-container">
                     <img height="16" width="16" src="icons/link_icon.jpg" class="source-image">
