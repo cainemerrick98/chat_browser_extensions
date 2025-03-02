@@ -40,14 +40,14 @@ html, body{
 
 .chat-message {
   margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 5px;
+  padding: 6px;
+  border-radius: 10px;
   background-color: #f0f0f0;
   gap: 10px;
 }
 
 .agent-message{
-  background-color: #e0e0e0;
+  background-color: white;
   color: #333;
   margin-right: 7.5%;
 }
@@ -68,32 +68,41 @@ html, body{
   font-size: 16px;
   color: #333;
 }
-
 .sources {
   display: flex;
-  gap: 5px;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+  margin-top: 6px;
 }
 
-.source-container{
+.source-container {
   display: flex;
-  gap: 5px;
-  background-color: #bcbcbc;
-  border-radius: 5px;
-  padding: 3px;
+  align-items: center;
+  gap: 6px;
+  background-color: #f0f2f5;
+  border-radius: 16px;
+  padding: 6px 12px;
+  border: 1px solid #e4e6eb;
+  transition: all 0.2s ease;
 }
 
-.source-container:hover{
-  background-color: #a9a9a9;
+.source-container:hover {
+  background-color: #e4e6eb;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-.source{
-    font-size: 10px;
-    color: black;
-    text-decoration: none;
+.source {
+  font-size: 12px;
+  font-weight: 500;
+  color: #4267B2;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
 }
 
 .chat-input {
@@ -162,56 +171,103 @@ html, body{
 
 /* Style for code blocks */
 pre {
-    background-color: #f4f4f4;
-    padding: 1em;
-    border-radius: 4px;
+    background-color: #f8f9fa;
+    padding: 1.2em;
+    border-radius: 8px;
     overflow-x: auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    margin: 1.5em 0;
+    border: 1px solid #e1e4e8;
 }
 
 code {
-    font-family: 'Courier New', Courier, monospace;
-    background-color: #f4f4f4;
-    padding: 2px 4px;
-    border-radius: 3px;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+    background-color: #f1f2f3;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: #24292e;
 }
 
 /* Style for blockquotes */
 blockquote {
-    border-left: 4px solid #ddd;
-    margin: 0;
-    padding-left: 1em;
+    border-left: 4px solid #007bff;
+    margin: 1.5em 0;
+    padding: 0.8em 1.2em;
+    background-color: #f8f9fa;
+    border-radius: 0 8px 8px 0;
+    color: #555;
+    font-style: italic;
 }
 
 /* Style for tables */
 table {
     border-collapse: collapse;
     width: 100%;
-    margin: 1em 0;
+    margin: 1.5em 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
+th {
+    background-color: #f1f2f3;
+    padding: 12px 15px;
     text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid #dfe2e5;
+}
+
+td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eaecef;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover {
+    background-color: #f6f8fa;
 }
 
 /* Style for links */
 a {
-    color: #0366d6;
+    color: #007bff;
     text-decoration: none;
+    transition: color 0.2s ease;
+    border-bottom: 1px solid transparent;
 }
 
 a:hover {
-    text-decoration: underline;
+    color: #0056b3;
+    border-bottom: 1px solid #0056b3;
+    text-decoration: none;
 }
 
+/* Style for lists */
+ul, ol {
+    padding-left: 2em;
+    margin: 1em 0;
+}
 
+li {
+    margin-bottom: 0.5em;
+}
 
+/* Style for headings */
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 1.5em;
+    margin-bottom: 0.75em;
+    color: #24292e;
+}
 
+h1 {
+    border-bottom: 2px solid #eaecef;
+    padding-bottom: 0.3em;
+}
 
-
-
-
-
-
-
+h2 {
+    border-bottom: 1px solid #eaecef;
+    padding-bottom: 0.3em;
+}

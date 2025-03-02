@@ -1,21 +1,12 @@
-// Add your popup logic here
-function initTextAreaResize() {
-    const textarea = document.getElementById('chat_input');
-    
-    if (!textarea) {
-        console.error('Could not find textarea with id "chat_input"');
-        return;
+function onEnterPress(event) {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        sendMessage();
     }
-    
-    // Set initial height
-    adjustTextareaHeight(textarea);
-    
-    textarea.addEventListener('input', function() {
-        adjustTextareaHeight(textarea);
-    });
 }
 
-function adjustTextareaHeight(textarea) {
+function adjustTextareaHeight() {
+    const textarea = document.getElementById('chat_input');
     // Reset height to auto to get the correct scrollHeight
     textarea.style.height = 'auto';
     // Set new height based on scroll height plus some padding
@@ -37,14 +28,17 @@ function adjustTextareaHeight(textarea) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    initTextAreaResize();
+    adjustTextareaHeight();
     
     // Add click handler for send button
     const sendButton = document.getElementById('send_button');
     if (sendButton) {
         sendButton.addEventListener('click', sendMessage);
-
     }   
+    const chatInput = document.getElementById('chat_input');
+    if (chatInput) {
+        chatInput.addEventListener('keydown', onEnterPress);
+    }
 });
 
   
@@ -88,7 +82,7 @@ function buildChatMessage(data, role) {
             <div class="sources">
                 ${data.sources.map(source => `<div class="source-container">
                     <img height="16" width="16" src="icons/link_icon.jpg" class="source-image">
-                    <a class="source" href="${source.link}">${source.title}</a>
+                    <a class="source" target="_blank" href="${source.link}">${source.title}</a>
                 </div>`).join('')}
             </div>
         </div>
